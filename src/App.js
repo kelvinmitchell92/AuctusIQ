@@ -139,8 +139,7 @@ function App() {
     const handleDoneButtonClick = () => {
         const newDone = {
             itemName: doneValue,
-            quantity: 1,
-            isSelected: false,
+           
         };
 
         const newItems = [...nextDone, newDone];
@@ -149,6 +148,23 @@ function App() {
         setDoneValue('');
 
     };
+
+    const handleRight = (itemIndex) => {
+
+        const newSprint = backlogs[itemIndex];
+
+        const newItems = [...nextSprints, newSprint];
+
+        setNextSprint(newItems);
+
+        let updatedItems = [...backlogs];
+        updatedItems.splice(itemIndex, 1);
+        setBacklogs(updatedItems);
+       
+
+
+
+    }
 
 
 
@@ -180,7 +196,7 @@ function App() {
                                                               <strong><span>{item.itemName}</span></strong>
                                                      
 
-                                                      <button class="btn btn-outline-secondary btn-sm"> → </button>
+                                                  <button key={index} className="item" onClick={() => handleRight(index)} class=" btn btn-outline-secondary btn-sm"> → </button>
 
                                                       <block>
                                                           <button key={index} className="item" onClick={() => handleDelete(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
