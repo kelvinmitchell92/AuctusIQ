@@ -11,6 +11,7 @@ function App() {
             itemName: inputValue,
             quantity: 1,
             isSelected: false,
+            
         };
 
         const newItems = [...backlogs, newBacklog];
@@ -22,7 +23,9 @@ function App() {
 
     const handleDelete = () => {
 
-        backlogs.pop();
+        let updatedItems = [...backlogs];
+        updatedItems.splice(backlogs.index, 1);
+            setBacklogs(updatedItems);
 
     }
 
@@ -129,26 +132,15 @@ function App() {
                                           {backlogs.map((item, index) => (
                                               <div className='item-container'>
                                                   <div className='item-name' >
-
-                                                      
-
-
-                                                      {item.isSelected ? (
-                                                          <>
-
-                                                              <strong><span className='completed'>{item.itemName}</span></strong>
-                                                          </>
-                                                      ) : (
-                                                          <>
+                                                     
 
                                                               <strong><span>{item.itemName}</span></strong>
-                                                          </>
-                                                      )}
+                                                     
 
                                                       <button class="btn btn-outline-secondary btn-sm"> → </button>
 
                                                       <block>
-                                                          <button onClick={() => handleDelete()} class="btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                          <button key={index} className="item" onClick={() => handleDelete()} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
                                                       </block>
 
                                                   </div>
