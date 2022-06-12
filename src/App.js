@@ -29,6 +29,46 @@ function App() {
 
     }
 
+    const handleDeleteSprint = (itemIndex) => {
+
+        let updatedItems = [...nextSprints];
+        updatedItems.splice(itemIndex, 1);
+        setNextSprint(updatedItems);
+
+    }
+
+    const handleDeleteDev = (itemIndex) => {
+
+        let updatedItems = [...nextDevs];
+        updatedItems.splice(itemIndex, 1);
+        setDev(updatedItems);
+
+    }
+
+    const handleDeleteTest = (itemIndex) => {
+
+        let updatedItems = [...nextTests];
+        updatedItems.splice(itemIndex, 1);
+        setTest(updatedItems);
+
+    }
+
+    const handleDeleteReview = (itemIndex) => {
+
+        let updatedItems = [...nextReviews];
+        updatedItems.splice(itemIndex, 1);
+        setReview(updatedItems);
+
+    }
+
+    const handleDeleteDone = (itemIndex) => {
+
+        let updatedItems = [...nextDone];
+        updatedItems.splice(itemIndex, 1);
+        setNextSprint(updatedItems);
+
+    }
+
     const [nextSprints, setNextSprint] = useState([]);
     const [sprintValue, setSprintValue] = useState('');
     const handleSprintButtonClick = () => {
@@ -129,10 +169,13 @@ function App() {
                                       <a class="btn btn-primary" onClick={() => handleAddButtonClick()}>Add Task</a> 
                                   </div>
                                       <div className='item-list'>
-                                          {backlogs.map((item, index) => (
+                                      {backlogs.map((item, index) => (
+
+
                                               <div className='item-container'>
                                                   <div className='item-name' >
                                                      
+                                                      
 
                                                               <strong><span>{item.itemName}</span></strong>
                                                      
@@ -140,7 +183,7 @@ function App() {
                                                       <button class="btn btn-outline-secondary btn-sm"> → </button>
 
                                                       <block>
-                                                          <button key={index} className="item" onClick={() => handleDelete()} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                          <button key={index} className="item" onClick={() => handleDelete(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
                                                       </block>
 
                                                   </div>
@@ -177,22 +220,14 @@ function App() {
                                                   <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
 
-                                                  {item.isSelected ? (
-                                                      <>
-
-                                                          <strong><span className='completed'>{item.itemName}</span></strong>
-                                                      </>
-                                                  ) : (
-                                                      <>
+                        
 
                                                           <strong><span>{item.itemName}</span></strong>
-                                                      </>
-                                                  )}
-
+                                               
                                                   <button class="btn btn-outline-secondary btn-sm"> → </button>
 
                                                   <block>
-                                                      <button class="btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                      <button key={index} className="item" onClick={() => handleDeleteSprint(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
                                                   </block>
 
                                               </div>
@@ -243,7 +278,7 @@ function App() {
                                                   <button class="btn btn-outline-secondary btn-sm"> → </button>
 
                                                   <block>
-                                                      <button class="btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                      <button key={index} className="item" onClick={() => handleDeleteDev(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
                                                   </block>
 
                                               </div>
@@ -294,7 +329,7 @@ function App() {
                                                   <button class="btn btn-outline-secondary btn-sm"> → </button>
 
                                                   <block>
-                                                      <button class="btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                      <button key={index} className="item" onClick={() => handleDeleteTest(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
                                                   </block>
 
                                               </div>
@@ -345,7 +380,7 @@ function App() {
                                                   <button class="btn btn-outline-secondary btn-sm"> → </button>
 
                                                   <block>
-                                                      <button class="btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                      <button key={index} className="item" onClick={() => handleDeleteReview(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
                                                   </block>
 
                                               </div>
@@ -392,7 +427,7 @@ function App() {
                                                  
 
                                                   <block>
-                                                      <button class="btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                      <button key={index} className="item" onClick={() => handleDeleteDone(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
                                                   </block>
 
                                               </div>
