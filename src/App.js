@@ -21,10 +21,10 @@ function App() {
         
     };
 
-    const handleDelete = () => {
+    const handleDelete = (itemIndex) => {
 
         let updatedItems = [...backlogs];
-        updatedItems.splice(backlogs.index, 1);
+        updatedItems.splice(itemIndex, 1);
             setBacklogs(updatedItems);
 
     }
