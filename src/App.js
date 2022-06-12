@@ -22,7 +22,7 @@ function App() {
 
     const handleDelete = () => {
 
-        backlogs.delete();
+        backlogs.pop();
 
     }
 
