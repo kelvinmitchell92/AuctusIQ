@@ -11,21 +11,21 @@ function App() {
             itemName: inputValue,
             quantity: 1,
             isSelected: false,
-            
+
         };
 
         const newItems = [...backlogs, newBacklog];
 
         setBacklogs(newItems);
         setInputValue('');
-        
+
     };
 
     const handleDelete = (itemIndex) => {
 
         let updatedItems = [...backlogs];
         updatedItems.splice(itemIndex, 1);
-            setBacklogs(updatedItems);
+        setBacklogs(updatedItems);
 
     }
 
@@ -139,7 +139,7 @@ function App() {
     const handleDoneButtonClick = () => {
         const newDone = {
             itemName: doneValue,
-           
+
         };
 
         const newItems = [...nextDone, newDone];
@@ -160,7 +160,7 @@ function App() {
         let updatedItems = [...backlogs];
         updatedItems.splice(itemIndex, 1);
         setBacklogs(updatedItems);
-       
+
 
 
 
@@ -168,303 +168,303 @@ function App() {
 
 
 
-  return (
-    <div className="App">
-
-          <body class="App-body">
-
-              <div class="row">
-                  <div class="col-sm-2">
-                      <div class="card">
-                          <div class="card-body">
-                              <h5 class="card-title">Backlog</h5>
-                              <p class="card-text">
+    return (
+        <div className="App">
 
-                                  <div className='add-item-box flex'>
-                                      <input value={inputValue} onChange={(event) => setInputValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width:'3cm' }} />
-                                      <a class="btn btn-primary" onClick={() => handleAddButtonClick()}>Add Task</a> 
-                                  </div>
-                                      <div className='item-list'>
-                                      {backlogs.map((item, index) => (
-
+            <body class="App-body">
 
-                                              <div className='item-container'>
-                                                  <div className='item-name' >
-                                                     
-                                                      
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Backlog</h5>
+                                <p class="card-text">
 
-                                                              <strong><span>{item.itemName}</span></strong>
-                                                     
+                                    <div className='add-item-box flex'>
+                                        <input value={inputValue} onChange={(event) => setInputValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
+                                        <a class="btn btn-primary" onClick={() => handleAddButtonClick()}>Add Task</a>
+                                    </div>
+                                    <div className='item-list'>
+                                        {backlogs.map((item, index) => (
 
-                                                  <button key={index} className="item" onClick={() => handleRight(index)} class=" btn btn-outline-secondary btn-sm"> → </button>
 
-                                                      <block>
-                                                          <button key={index} className="item" onClick={() => handleDelete(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
-                                                      </block>
+                                            <div className='item-container'>
+                                                <div className='item-name' >
 
-                                                  </div>
-                                                  
-                                                      
-                                                      
-                                              
-                                                  
-                                              </div>
-                                          ))}
-                                      </div>
-                                
 
-                              </p>
-                              
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-2">
-                      <div class="card">
-                          <div class="card-body">
-                              <h5 class="card-title">Next Sprint</h5>
-                              <p class="card-text">
 
-                                  <div className='add-item-box flex'>
-                                      <input value={sprintValue} onChange={(event) => setSprintValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
-                                      <a class="btn btn-primary" onClick={() => handleSprintButtonClick()}>Add Task</a>
-                                  </div>
-                                  <div className='item-list'>
-                                      {nextSprints.map((item, index) => (
-                                          <div className='item-container'>
-                                              <div className='item-name' >
+                                                    <strong><span>{item.itemName}</span></strong>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
+                                                    <button key={index} className="item" onClick={() => handleRight(index)} class=" btn btn-outline-secondary btn-sm"> → </button>
 
-                        
+                                                    <block>
+                                                        <button key={index} className="item" onClick={() => handleDelete(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                    </block>
 
-                                                          <strong><span>{item.itemName}</span></strong>
-                                               
-                                                  <button class="btn btn-outline-secondary btn-sm"> → </button>
+                                                </div>
 
-                                                  <block>
-                                                      <button key={index} className="item" onClick={() => handleDeleteSprint(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
-                                                  </block>
 
-                                              </div>
 
 
 
+                                            </div>
+                                        ))}
+                                    </div>
 
 
-                                          </div>
-                                      ))}
-                                  </div>
+                                </p>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Next Sprint</h5>
+                                <p class="card-text">
 
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-2">
-                      <div class="card">
-                          <div class="card-body">
-                              <h5 class="card-title">In Development</h5>
-                              <p class="card-text">
+                                    <div className='add-item-box flex'>
+                                        <input value={sprintValue} onChange={(event) => setSprintValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
+                                        <a class="btn btn-primary" onClick={() => handleSprintButtonClick()}>Add Task</a>
+                                    </div>
+                                    <div className='item-list'>
+                                        {nextSprints.map((item, index) => (
+                                            <div className='item-container'>
+                                                <div className='item-name' >
 
-                                  <div className='add-item-box flex'>
-                                      <input value={devValue} onChange={(event) => setDevValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
-                                      <a class="btn btn-primary" onClick={() => handleDevButtonClick()}>Add Task</a>
-                                  </div>
-                                  <div className='item-list'>
-                                      {nextDevs.map((item, index) => (
-                                          <div className='item-container'>
-                                              <div className='item-name' >
+                                                    <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
 
-                                                  {item.isSelected ? (
-                                                      <>
 
-                                                          <strong><span className='completed'>{item.itemName}</span></strong>
-                                                      </>
-                                                  ) : (
-                                                      <>
+                                                    <strong><span>{item.itemName}</span></strong>
 
-                                                          <strong><span>{item.itemName}</span></strong>
-                                                      </>
-                                                  )}
+                                                    <button class="btn btn-outline-secondary btn-sm"> → </button>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> → </button>
+                                                    <block>
+                                                        <button key={index} className="item" onClick={() => handleDeleteSprint(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                    </block>
 
-                                                  <block>
-                                                      <button key={index} className="item" onClick={() => handleDeleteDev(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
-                                                  </block>
+                                                </div>
 
-                                              </div>
 
 
 
 
+                                            </div>
+                                        ))}
+                                    </div>
 
-                                          </div>
-                                      ))}
-                                  </div>
 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">In Development</h5>
+                                <p class="card-text">
 
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-2">
-                      <div class="card">
-                          <div class="card-body">
-                              <h5 class="card-title">In Testing</h5>
-                              <p class="card-text">
+                                    <div className='add-item-box flex'>
+                                        <input value={devValue} onChange={(event) => setDevValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
+                                        <a class="btn btn-primary" onClick={() => handleDevButtonClick()}>Add Task</a>
+                                    </div>
+                                    <div className='item-list'>
+                                        {nextDevs.map((item, index) => (
+                                            <div className='item-container'>
+                                                <div className='item-name' >
 
-                                  <div className='add-item-box flex'>
-                                      <input value={testValue} onChange={(event) => setTestValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
-                                      <a class="btn btn-primary" onClick={() => handleTestButtonClick()}>Add Task</a>
-                                  </div>
-                                  <div className='item-list'>
-                                      {nextTests.map((item, index) => (
-                                          <div className='item-container'>
-                                              <div className='item-name' >
+                                                    <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
+                                                    {item.isSelected ? (
+                                                        <>
 
-                                                  {item.isSelected ? (
-                                                      <>
+                                                            <strong><span className='completed'>{item.itemName}</span></strong>
+                                                        </>
+                                                    ) : (
+                                                        <>
 
-                                                          <strong><span className='completed'>{item.itemName}</span></strong>
-                                                      </>
-                                                  ) : (
-                                                      <>
+                                                            <strong><span>{item.itemName}</span></strong>
+                                                        </>
+                                                    )}
 
-                                                          <strong><span>{item.itemName}</span></strong>
-                                                      </>
-                                                  )}
+                                                    <button class="btn btn-outline-secondary btn-sm"> → </button>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> → </button>
+                                                    <block>
+                                                        <button key={index} className="item" onClick={() => handleDeleteDev(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                    </block>
 
-                                                  <block>
-                                                      <button key={index} className="item" onClick={() => handleDeleteTest(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
-                                                  </block>
+                                                </div>
 
-                                              </div>
 
 
 
 
+                                            </div>
+                                        ))}
+                                    </div>
 
-                                          </div>
-                                      ))}
-                                  </div>
 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">In Testing</h5>
+                                <p class="card-text">
 
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-2">
-                      <div class="card">
-                          <div class="card-body">
-                              <h5 class="card-title">In Review</h5>
-                              <p class="card-text">
+                                    <div className='add-item-box flex'>
+                                        <input value={testValue} onChange={(event) => setTestValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
+                                        <a class="btn btn-primary" onClick={() => handleTestButtonClick()}>Add Task</a>
+                                    </div>
+                                    <div className='item-list'>
+                                        {nextTests.map((item, index) => (
+                                            <div className='item-container'>
+                                                <div className='item-name' >
 
-                                  <div className='add-item-box flex'>
-                                      <input value={reviewValue} onChange={(event) => setReviewValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
-                                      <a class="btn btn-primary" onClick={() => handleReviewButtonClick()}>Add Task</a>
-                                  </div>
-                                  <div className='item-list'>
-                                      {nextReviews.map((item, index) => (
-                                          <div className='item-container'>
-                                              <div className='item-name' >
+                                                    <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
+                                                    {item.isSelected ? (
+                                                        <>
 
-                                                  {item.isSelected ? (
-                                                      <>
+                                                            <strong><span className='completed'>{item.itemName}</span></strong>
+                                                        </>
+                                                    ) : (
+                                                        <>
 
-                                                          <strong><span className='completed'>{item.itemName}</span></strong>
-                                                      </>
-                                                  ) : (
-                                                      <>
+                                                            <strong><span>{item.itemName}</span></strong>
+                                                        </>
+                                                    )}
 
-                                                          <strong><span>{item.itemName}</span></strong>
-                                                      </>
-                                                  )}
+                                                    <button class="btn btn-outline-secondary btn-sm"> → </button>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> → </button>
+                                                    <block>
+                                                        <button key={index} className="item" onClick={() => handleDeleteTest(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                    </block>
 
-                                                  <block>
-                                                      <button key={index} className="item" onClick={() => handleDeleteReview(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
-                                                  </block>
+                                                </div>
 
-                                              </div>
 
 
 
 
+                                            </div>
+                                        ))}
+                                    </div>
 
-                                          </div>
-                                      ))}
-                                  </div>
 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">In Review</h5>
+                                <p class="card-text">
 
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-2">
-                      <div class="card">
-                          <div class="card-body">
-                              <h5 class="card-title">Finished</h5>
-                              <p class="card-text">
+                                    <div className='add-item-box flex'>
+                                        <input value={reviewValue} onChange={(event) => setReviewValue(event.target.value)} className='add-item-input flex' placeholder='Add a task...' style={{ width: '3cm' }} />
+                                        <a class="btn btn-primary" onClick={() => handleReviewButtonClick()}>Add Task</a>
+                                    </div>
+                                    <div className='item-list'>
+                                        {nextReviews.map((item, index) => (
+                                            <div className='item-container'>
+                                                <div className='item-name' >
 
-                                  <div className='item-list'>
-                                      {nextDone.map((item, index) => (
-                                          <div className='item-container'>
-                                              <div className='item-name' >
+                                                    <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
-                                                  <button class="btn btn-outline-secondary btn-sm"> ← </button>
 
+                                                    {item.isSelected ? (
+                                                        <>
 
-                                                  {item.isSelected ? (
-                                                      <>
+                                                            <strong><span className='completed'>{item.itemName}</span></strong>
+                                                        </>
+                                                    ) : (
+                                                        <>
 
-                                                          <strong><span className='completed'>{item.itemName}</span></strong>
-                                                      </>
-                                                  ) : (
-                                                      <>
+                                                            <strong><span>{item.itemName}</span></strong>
+                                                        </>
+                                                    )}
 
-                                                          <strong><span>{item.itemName}</span></strong>
-                                                      </>
-                                                  )}
+                                                    <button class="btn btn-outline-secondary btn-sm"> → </button>
 
-                                                 
+                                                    <block>
+                                                        <button key={index} className="item" onClick={() => handleDeleteReview(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                    </block>
 
-                                                  <block>
-                                                      <button key={index} className="item" onClick={() => handleDeleteDone(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
-                                                  </block>
+                                                </div>
 
-                                              </div>
 
 
 
 
+                                            </div>
+                                        ))}
+                                    </div>
 
-                                          </div>
-                                      ))}
-                                  </div>
 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Finished</h5>
+                                <p class="card-text">
 
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </body>
-    </div>
-  );
+                                    <div className='item-list'>
+                                        {nextDone.map((item, index) => (
+                                            <div className='item-container'>
+                                                <div className='item-name' >
+
+                                                    <button class="btn btn-outline-secondary btn-sm"> ← </button>
+
+
+                                                    {item.isSelected ? (
+                                                        <>
+
+                                                            <strong><span className='completed'>{item.itemName}</span></strong>
+                                                        </>
+                                                    ) : (
+                                                        <>
+
+                                                            <strong><span>{item.itemName}</span></strong>
+                                                        </>
+                                                    )}
+
+
+
+                                                    <block>
+                                                        <button key={index} className="item" onClick={() => handleDeleteDone(index)} class=" btn btn-outline-secondary btn-sm"> Delete Task </button>
+                                                    </block>
+
+                                                </div>
+
+
+
+
+
+                                            </div>
+                                        ))}
+                                    </div>
+
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </body>
+        </div>
+    );
 }
 
 export default App;
